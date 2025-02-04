@@ -27,6 +27,8 @@ const Quizzes = () => {
                                 <img style={{ width: 600 }} src={quiz.image.guid ?? ""} alt="" />
                             )}
                             <p>{quiz.description}</p>
+                            <p>Difficulté du quiz : {quiz.difficulte} </p>
+                            <p>Dernier statut du quiz : {quiz.statut} </p>
                         </div>
                     ))
                 ) : (
