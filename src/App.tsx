@@ -1,3 +1,4 @@
+import Quizzes from "./components/Quizzes/Quizzes";
 import Header from "./containers/Header";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
   return (
     <>
       <Header />
+      <Quizzes />
     </>
   );
 }
