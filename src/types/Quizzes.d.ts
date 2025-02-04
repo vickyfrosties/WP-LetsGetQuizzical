@@ -1,4 +1,4 @@
-export type Root = Array<{
+export type QuizzesResponseWP = Array<{
   id: number;
   date: string;
   date_gmt: string;
@@ -78,4 +78,4 @@ export type Root = Array<{
       templated: boolean;
     }>;
   };
-}>
+}>;

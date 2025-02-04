@@ -1,4 +1,4 @@
-export type Root = {
+export type QuestionResponseWP = {
     id: number;
     date: string;
     date_gmt: string;

@@ -1,4 +1,4 @@
-export type Root = {
+export type QuizzResponseWP = {
     id: number;
     date: string;
     date_gmt: string;
@@ -78,4 +78,4 @@ export type Root = {
             templated: boolean;
         }>;
     };
-}
+};
