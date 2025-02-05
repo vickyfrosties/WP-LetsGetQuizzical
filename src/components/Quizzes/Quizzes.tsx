@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { QuizzesResponseWP } from "../../types/Quizzes";
 import { getAllQuizzes } from "../../services/Quizzes.services";
+import Game from "../Game/Game";
 
 const Quizzes = () => {
 
@@ -29,6 +30,7 @@ const Quizzes = () => {
                             <p>{quiz.description}</p>
                             <p>Difficulté du quiz : {quiz.difficulte} </p>
                             <p>Dernier statut du quiz : {quiz.statut} </p>
+                            <Game />
                         </div>
                     ))
                 ) : (
