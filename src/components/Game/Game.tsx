@@ -1,12 +1,18 @@
-const Game: React.FC = () => {
+import { Link } from "react-router-dom";
+import { QuestionsResponseWP } from "../../types/Questions";
 
-    const handleClick = () => {
-        console.log("bouton fonctionne");
-    };
+interface QuestionProps {
+    questions: QuestionsResponseWP[];
+}
+
+const Game: React.FC<QuestionProps> = ({ questions }) => {
+
+
 
     return (
         <>
-            <button onClick={handleClick}>Commencer le quiz</button>
+            <Link to="/quizzes/:id">Commencer le quiz</Link>
+
         </>
     );
 };
