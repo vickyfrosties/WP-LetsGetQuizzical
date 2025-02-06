@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { QuizzesResponseWP } from "../../types/Quizzes";
 import { getAllQuizzes } from "../../services/Quizzes.services";
-import Game from "../Game/Game";
+import { QuizzesResponseWP } from "../../types";
+import { Link } from "react-router-dom";
 
-const Quizzes = () => {
+const Quizzes: React.FC = () => {
 
     const [quizzes, setQuizzes] = useState<QuizzesResponseWP[]>([]);
 
@@ -30,12 +30,13 @@ const Quizzes = () => {
                             <p>{quiz.description}</p>
                             <p>Difficulté du quiz : {quiz.difficulte} </p>
                             <p>Dernier statut du quiz : {quiz.statut} </p>
-                            <Game />
+                            <Link to={`/quizzes/${quiz.id}`}>Commencer le quiz</Link>
                         </div>
                     ))
                 ) : (
                     <p>Aucun quiz disponible.</p>
                 )}
+
             </section>
         </>
     );

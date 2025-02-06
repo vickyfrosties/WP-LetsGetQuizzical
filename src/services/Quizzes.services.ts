@@ -1,4 +1,4 @@
-import { QuizzesResponseWP } from "../types/Quizzes";
+import { QuizzesResponseWP } from "../types";
 
 const { VITE_URL_WP } = import.meta.env;
 
