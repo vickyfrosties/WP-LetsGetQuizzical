@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { QuestionsResponseWP } from "../../types/Questions";
 
 interface QuestionProps {
@@ -7,12 +6,15 @@ interface QuestionProps {
 
 const Game: React.FC<QuestionProps> = ({ questions }) => {
 
-
-
     return (
         <>
-            <Link to="/quizzes/:id">Commencer le quiz</Link>
-
+            <div>
+                <p>{questions.map((question) => (
+                    <div key={question.id}>
+                        <p> {question.question} </p>
+                    </div>
+                ))} </p>
+            </div>
         </>
     );
 };

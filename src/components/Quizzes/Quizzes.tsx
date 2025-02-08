@@ -30,7 +30,7 @@ const Quizzes: React.FC = () => {
                             <p>{quiz.description}</p>
                             <p>Difficulté du quiz : {quiz.difficulte} </p>
                             <p>Dernier statut du quiz : {quiz.statut} </p>
-                            <Link to={`/quizzes/${quiz.id}`}>Commencer le quiz</Link>
+                            <Link to={`/quiz/${quiz.id}`}>Commencer le quiz</Link>
                         </div>
                     ))
                 ) : (

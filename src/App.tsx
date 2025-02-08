@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Quizzes from "./components/Quizzes/Quizzes";
 import Header from "./containers/Header";
-import Questions from "./components/Questions/Questions";
+import Game from "./components/Game/Game";
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Quizzes />} />
-        <Route path="/quizzes/:id" element={<Questions />} />
+        <Route path="/quiz/:id" element={<Game />} />
       </Routes>
     </>
   );
