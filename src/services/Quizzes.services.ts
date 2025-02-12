@@ -10,7 +10,7 @@ export async function getAllQuizzes(): Promise<QuizzesResponseWP[]> {
     return result;
 }
 
-export async function getQuizById(id: number): Promise<QuizzesResponseWP> => {
+export async function getQuizById(id: number): Promise<QuizzesResponseWP> {
     const response = await fetch(VITE_URL_WP + `wp-json/v2/quiz/${id}`);
 
     if (!response.ok) {
@@ -21,10 +21,23 @@ export async function getQuizById(id: number): Promise<QuizzesResponseWP> => {
 
     // pour avoir le nom de l'utilisateur et pas seulement son id
     if (data.points && Array.isArray(data.points)) {
-        const scoreboardPromises = data.points.map(async (sbItem: any))=> {
-            if (sbItem.id) {
-                const response = await fetch(VITE_URL_WP + `/scoreboard/${sbItem.id}`);
+        const scoreboardPromises = data.points.map(async (scoreboardItem: any) => {
+            if (scoreboardItem.id) {
+                const response = await fetch(VITE_URL_WP + `scoreboard/${scoreboardItem.id}`);
+
+                if (!response.ok) {
+                    throw new Error(`status: ${response.status}`);
+                }
+                const sbData = await response.json();
+                return {
+                    ...scoreboardItem,
+                    utilisateur: sbData.utilisateur,
+                };
+
+                return scoreboardItem;
             }
-        }
+        });
+
+        data.scoreboard = await Promise.all(scoreboardPromises);
     }
 }
