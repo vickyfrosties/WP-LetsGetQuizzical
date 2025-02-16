@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { QuizzesResponseWP } from "../../types";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getQuizById } from "../../services/Quizzes.services";
 import QuizOverview from "../Overview/QuizOverview";
 import Game from "../Game/Game";
@@ -89,7 +89,9 @@ const Questions: React.FC = () => {
                 )}
             </div>
 
-            <button>Retour à la liste</button>
+            <Link to="/">
+                Retour à la liste
+            </Link>
         </>
     );
 };

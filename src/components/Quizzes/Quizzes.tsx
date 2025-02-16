@@ -28,7 +28,7 @@ const Quizzes: React.FC = () => {
                                 <img style={{ width: 600 }} src={quiz.image.guid ?? ""} alt="" />
                             )}
                             <p>{quiz.description}</p>
-                            <p>Difficulté du quiz : {quiz.difficulte} </p>
+                            <p>Difficulté du quiz : {quiz.difficulte?.[0]} </p>
                             <p>Dernier statut du quiz : {quiz.statut} </p>
                             <Link to={`/quiz/${quiz.id}`}>Commencer le quiz</Link>
                         </div>

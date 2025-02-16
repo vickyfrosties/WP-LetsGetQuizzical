@@ -18,6 +18,9 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
         isMatch: boolean,
     } | null>(null);
 
+    console.log("Questions reçues :", questions);
+
+
     if (!questions || questions.length === 0) {
         return <p>Aucune question.</p>;
     }
@@ -67,6 +70,7 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
     };
 
     const question = questions[currentIndex];
+
 
 
     return (
