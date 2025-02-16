@@ -35,6 +35,31 @@ const Questions: React.FC = () => {
         });
     }, [id]);
 
+    if (error) {
+        return <p>Erreur : {error} </p>;
+    }
+    if (!quiz) {
+        return <p>Chargement... </p>;
+    }
+
+    const handlePlay = () => {
+        setMode("play");
+        setFinalScore(null);
+        setElapsedtime(null);
+        setStartTime(Date.now());
+    };
+
+    const handleGameOver = async (score: number) => {
+        setFinalScore(score);
+        setMode("end");
+
+        if (startTime) {
+            const endTime = Date.now();
+            const totalMs = endTime - startTime;
+            setElapsedtime(totalMs);
+        }
+    };
+
     const totalQuestions = quiz?.questions?.length || 0;
     const percentage = finalScore !== null && totalQuestions > 0 ? Math.round(finalScore / totalQuestions * 100) : 0;
 
@@ -46,7 +71,24 @@ const Questions: React.FC = () => {
                 {mode === "overview" && (
                     <QuizOverview quiz={quiz} onPlay={handlePlay} />
                 )}
+
+                {mode === "play" && quiz?.questions && quiz.questions.length > 0 && (
+                    <Game questions={quiz.questions} onGameOver={handleGameOver} />
+                )}
+
+                {mode === "end" && (
+                    <div>
+                        <h2>Partie terminée</h2>
+                        <p> Nombre de bonnes réponses : {finalScore} sur {totalQuestions} </p>
+                        <p>Score final : {percentage}% </p>
+                        {elapsedSeconds && <p>Temps écoulé : {elapsedSeconds} secondes </p>}
+
+                        <button onClick={() => setMode("overview")}>Voir l'aperçu</button>
+                    </div>
+                )}
             </div>
+
+            <button>Retour à la liste</button>
         </>
     );
 };
