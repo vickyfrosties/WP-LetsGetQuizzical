@@ -3,6 +3,7 @@ import { QuizzesResponseWP } from "../../types";
 import { useParams } from "react-router-dom";
 import { getQuizById } from "../../services/Quizzes.services";
 import QuizOverview from "../Overview/QuizOverview";
+import Game from "../Game/Game";
 
 const Questions: React.FC = () => {
 
