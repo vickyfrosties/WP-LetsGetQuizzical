@@ -12,7 +12,7 @@ export async function getAllQuizzes(): Promise<QuizzesResponseWP[]> {
 
 // aller chercher un élément sur base d'un ID
 export async function getQuizById(id: number): Promise<QuizzesResponseWP> {
-    const response = await fetch(VITE_URL_WP + `quiz/${id}`);
+    const response = await fetch(VITE_URL_WP + `wp-json/wp/v2/quizzes/${id}`);
 
     if (!response.ok) {
         throw new Error(`HTTP error, status: ${response.status}`);
@@ -26,7 +26,7 @@ export async function getQuizById(id: number): Promise<QuizzesResponseWP> {
         const scoreboardPromises = data.scoreboard.map(async (sbItem: any) => {
 
             if (sbItem.id) {
-                const response = await fetch(`${VITE_URL_WP}scoreboard/${sbItem.id}`);
+                const response = await fetch(`${VITE_URL_WP}/wp-json/wp/v2/scoresboard/${sbItem.id}`);
 
                 if (!response.ok) {
                     throw new Error(`HTTP error, status: ${response.status}`);

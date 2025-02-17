@@ -33,7 +33,7 @@ const Questions: React.FC = () => {
             catch (error: any) {
                 setError(error.message);
             }
-        });
+        })();
     }, [id]);
 
     if (error) {
