@@ -11,7 +11,6 @@ const Quizzes: React.FC = () => {
     useEffect(() => {
         getAllQuizzes()
             .then((quizzes) => {
-                console.log(quizzes);
                 setQuizzes(quizzes);
             })
             .catch(err => console.error("Erreur de chargement des quizzes", err));
@@ -31,7 +30,11 @@ const Quizzes: React.FC = () => {
                             <p>{quiz.description}</p>
                             <p>Difficulté du quiz : {quiz.difficulte?.[0]} </p>
                             <p>Dernier statut du quiz : {quiz.statut} </p>
-                            <Link to={`/quiz/${quiz.id}`}>Commencer le quiz</Link>
+                            <Link className={styles.start_btn} to={`/quiz/${quiz.id}`}>
+                                <button>
+                                    Plus d'informations
+                                </button>
+                            </Link>
                         </div>
                     ))
                 ) : (

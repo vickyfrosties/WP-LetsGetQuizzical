@@ -1,0 +1,32 @@
+.quiz_container {
+  border: 2px solid chartreuse;
+  width: 80%;
+  min-height: 80vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .quiz_game_card {
+    background-color: var(--primary-color);
+    border: 8px solid white;
+    border-radius: 2em;
+    max-width: 40vw;
+    min-height: 60vh;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h2,
+    p,
+    button {
+      font-family: var(--secondary-font);
+    }
+
+    button {
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+  }
+}

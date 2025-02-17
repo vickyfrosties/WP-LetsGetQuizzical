@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { getQuizById } from "../../services/Quizzes.services";
 import QuizOverview from "../Overview/QuizOverview";
 import Game from "../Game/Game";
+import styles from "./Questions.module.css";
 
 const Questions: React.FC = () => {
 
@@ -89,8 +90,10 @@ const Questions: React.FC = () => {
                 )}
             </div>
 
-            <Link to="/">
-                Retour à la liste
+            <Link className={styles.go_back} to="/">
+                <button>
+                    Retour à la liste
+                </button>
             </Link>
         </>
     );
