@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllQuizzes } from "../../services/Quizzes.services";
 import { QuizzesResponseWP } from "../../types";
 import { Link } from "react-router-dom";
+import styles from "./Quizzes.module.css";
 
 const Quizzes: React.FC = () => {
 
@@ -18,14 +19,14 @@ const Quizzes: React.FC = () => {
 
     return (
         <>
-            <h2>Liste des quizzes</h2>
-            <section>
+            <h2 className={styles.subtitle}>Les Quizzes</h2>
+            <section className={styles.quizzes_section}>
                 {quizzes?.length > 0 ? (
                     quizzes.map((quiz) => (
-                        <div key={quiz.id}>
-                            <h3>{quiz.titre ?? quiz.titre?.rendered}</h3>
+                        <div className={styles.quizzes_cards} key={quiz.id}>
+                            <h3 className={styles.quizz_title}>{quiz.titre ?? quiz.titre?.rendered}</h3>
                             {quiz.image && (
-                                <img style={{ width: 600 }} src={quiz.image.guid ?? ""} alt="" />
+                                <img className={styles.illustration} src={quiz.image.guid ?? ""} alt="" />
                             )}
                             <p>{quiz.description}</p>
                             <p>Difficulté du quiz : {quiz.difficulte?.[0]} </p>
