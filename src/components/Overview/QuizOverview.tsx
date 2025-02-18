@@ -18,7 +18,7 @@ const QuizOverview: React.FC<QuizOverviewProps> = ({ quiz, onPlay }) => {
           <p>Difficulté : {quiz.difficulte?.[0]}</p>
           <p>{quiz.description}</p>
 
-          <button onClick={onPlay}>Jouer</button>
+          <button className={styles.play} onClick={onPlay}>Jouer</button>
 
           {quiz.scoreboard && quiz.scoreboard.length > 0 ? (
             <div>

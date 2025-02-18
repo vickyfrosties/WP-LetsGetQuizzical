@@ -18,12 +18,11 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
         isMatch: boolean,
     } | null>(null);
 
-    console.log("Questions reçues :", questions);
-
-
     if (!questions || questions.length === 0) {
         return <p>Aucune question.</p>;
     }
+
+    const question = questions[currentIndex];
 
     const handleMatch = () => {
         if (!question)
@@ -33,20 +32,20 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
             premiere: question.reponses_acceptees || ""
         };
 
-        const scores = Object.entries(predefinedAnswers).map(([reponse]) => ({
-            reponse,
-            score: fuzzball.ratio(userInput, reponse)
+        const scores = Object.values(predefinedAnswers).map((response) => ({
+            response,
+            score: fuzzball.ratio(userInput, response)
         }));
 
         const bestMatch = scores.reduce((best, current) =>
             current.score > best.score ? current : best,
-            { reponse: "", score: 0 }
+            { response: "", score: 0 }
         );
 
         const isMatch = bestMatch.score >= 80;
 
         setResult({
-            bestMatch: bestMatch.reponse,
+            bestMatch: bestMatch.response,
             score: bestMatch.score,
             isMatch
         });
@@ -69,7 +68,6 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
         }
     };
 
-    const question = questions[currentIndex];
 
 
 
@@ -80,7 +78,8 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
                     <p> {question.question} </p>
                     {question.contenu && (
                         <div>
-                            <img src={question.contenu} alt="question" />
+                            <p>{question.contenu}</p>
+                            {/* <img src={question.contenu} alt="question" /> */}
                         </div>
                     )}
                 </div>

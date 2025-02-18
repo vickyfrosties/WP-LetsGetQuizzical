@@ -24,9 +24,21 @@
       font-family: var(--secondary-font);
     }
 
-    button {
-      font-weight: 800;
-      font-size: 1.5rem;
+    .play {
+      font-size: 1.2rem;
+      font-weight: 700;
+      width: 10rem;
+      height: 2.5rem;
+
+      background-color: #0a0a79;
+      color: white;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+    }
+
+    .play:hover {
+      background-color: #2e2bfc;
     }
   }
 }
