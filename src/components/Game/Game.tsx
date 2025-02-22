@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { QuestionsResponseWP } from "../../types";
 import * as fuzzball from "fuzzball";
+import styles from "./Game.module.css";
 
 interface QuizGameProps {
     questions: QuestionsResponseWP[];
@@ -75,11 +76,11 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
         <>
             <div>
                 <div>
-                    <p> {question.question} </p>
+                    <p className={styles.text}> {question.question} </p>
                     {question.contenu && (
                         <div>
-                            <p>{question.contenu}</p>
-                            {/* <img src={question.contenu} alt="question" /> */}
+                            <p className={styles.text} >{question.contenu}</p>
+                            {/* <img src={question.guid?.rendered} alt="question" /> */}
                         </div>
                     )}
                 </div>

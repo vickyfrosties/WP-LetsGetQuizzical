@@ -25,7 +25,7 @@ const Quizzes: React.FC = () => {
                         <div className={styles.quizzes_cards} key={quiz.id}>
                             <h3 className={styles.quizz_title}>{quiz.titre ?? quiz.titre?.rendered}</h3>
                             {quiz.image && (
-                                <img className={styles.illustration} src={quiz.image.guid ?? ""} alt="" />
+                                <img className={styles.illustration} src={quiz.image.guid} alt="" />
                             )}
                             <p>{quiz.description}</p>
                             <p>Difficulté du quiz : {quiz.difficulte?.[0]} </p>

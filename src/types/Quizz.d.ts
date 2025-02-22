@@ -23,7 +23,7 @@ export type QuizzesResponseWP = {
     image?: ImageQuizzResponseWP[],
     description: string,
     difficulte: string,
-    questions?: QuestionsResponseWP[],
+    association_avec_les_questions?: QuestionsResponseWP[],
     scoreboard: ScoresboardResponseWP[],
     _links?: {
         self?: Array<{ href: string; }>;

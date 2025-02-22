@@ -74,8 +74,8 @@ const Questions: React.FC = () => {
                     <QuizOverview quiz={quiz} onPlay={handlePlay} />
                 )}
 
-                {mode === "play" && quiz?.questions && quiz.questions.length > 0 && (
-                    <Game questions={quiz.questions} onGameOver={handleGameOver} />
+                {mode === "play" && quiz?.association_avec_les_questions && quiz.association_avec_les_questions.length > 0 && (
+                    <Game questions={quiz.association_avec_les_questions} onGameOver={handleGameOver} />
                 )}
 
                 {mode === "end" && (
