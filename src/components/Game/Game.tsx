@@ -30,7 +30,8 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
             return;
 
         const predefinedAnswers = {
-            premiere: question.reponses_acceptees || ""
+            first: question.reponses_acceptees || "",
+            second: question.reponse_alternative || "",
         };
 
         const scores = Object.values(predefinedAnswers).map((response) => ({
