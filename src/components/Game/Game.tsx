@@ -75,13 +75,13 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
 
     return (
         <>
-            <div>
-                <div>
+            <section className={styles.section_questions}>
+                <div className={styles.container_questions}>
                     <p className={styles.text}> {question.question} </p>
                     {question.contenu && (
                         <div>
                             <p className={styles.text} >{question.contenu}</p>
-                            {/* <img src={question.guid?.rendered} alt="question" /> */}
+                            <img src={question.guid?.rendered} alt="question" />
                         </div>
                     )}
                 </div>
@@ -107,13 +107,12 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
                     </div>
                 )}
 
-                {/* question suivante */}
                 {result && (
                     <button onClick={handleNextQuestion}>
                         {currentIndex === questions.length - 1 ? "Terminer" : "Question suivante"}
                     </button>
                 )}
-            </div>
+            </section >
         </>
     );
 };
