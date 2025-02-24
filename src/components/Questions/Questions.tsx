@@ -51,8 +51,8 @@ const Questions: React.FC = () => {
         setStartTime(Date.now());
     };
 
-    const handleGameOver = async (score: number) => {
-        setFinalScore(score);
+    const handleGameOver = async (points: number) => {
+        setFinalScore(points);
         setMode("end");
 
         if (startTime) {
@@ -62,8 +62,9 @@ const Questions: React.FC = () => {
         }
     };
 
-    const totalQuestions = quiz?.questions?.length || 0;
-    const percentage = finalScore !== null && totalQuestions > 0 ? Math.round(finalScore / totalQuestions * 100) : 0;
+    const totalQuestions = quiz.association_avec_les_questions?.length || 0;
+    console.log(typeof totalQuestions);
+    const percentage = finalScore !== null && totalQuestions > 0 ? Math.round(finalScore / totalQuestions * 100).toFixed(2) : null;
 
     const elapsedSeconds = elapsedTime ? (elapsedTime / 1000).toFixed(2) : null;
 
@@ -79,7 +80,7 @@ const Questions: React.FC = () => {
                 )}
 
                 {mode === "end" && (
-                    <div>
+                    <div className={styles.end_game}>
                         <h2>Partie terminée</h2>
                         <p> Nombre de bonnes réponses : {finalScore} sur {totalQuestions} </p>
                         <p>Score final : {percentage}% </p>
@@ -90,11 +91,13 @@ const Questions: React.FC = () => {
                 )}
             </div>
 
-            <Link className={styles.go_back} to="/">
-                <button>
-                    Retour à la liste
-                </button>
-            </Link>
+            <div className={styles.button_container}>
+                <Link className={styles.go_back} to="/">
+                    <button>
+                        Retour à la liste
+                    </button>
+                </Link>
+            </div>
         </>
     );
 };

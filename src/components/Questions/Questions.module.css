@@ -1,13 +1,40 @@
-.go_back {
-  button {
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 20px;
-    width: 10.5rem;
-    height: 3rem;
-    cursor: pointer;
-    background-color: var(--primary-color);
-    color: black;
+.end_game {
+  background-color: white;
+  width: 50vw;
+  height: 30vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 25px;
+    font-family: var(--secondary-font);
+  }
+
+  p {
+    font-family: var(--secondary-font);
+  }
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+
+  .go_back {
+    margin-top: 2rem;
+
+    button {
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      width: 10.5rem;
+      height: 3rem;
+      cursor: pointer;
+      background-color: var(--primary-color);
+      color: black;
+    }
   }
 }

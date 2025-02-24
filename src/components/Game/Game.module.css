@@ -23,4 +23,20 @@
       height: 20%;
     }
   }
+
+  .right_answers {
+    font-family: var(--secondary-font);
+    font-size: 18px;
+    color: green;
+    background-color: white;
+
+
+  }
+
+  .false_answers {
+    background-color: white;
+    font-family: var(--secondary-font);
+    font-size: 18px;
+    color: red;
+  }
 }

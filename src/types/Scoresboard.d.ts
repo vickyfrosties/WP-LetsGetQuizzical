@@ -1,8 +1,8 @@
 export type ScoresboardResponseWP = {
     utilisateur: number,
     quiz: number,
-    points: string,
-    temps: string,
+    points: stnumberring,
+    temps: number,
     ID: number,
     [key: string]: any;
 };

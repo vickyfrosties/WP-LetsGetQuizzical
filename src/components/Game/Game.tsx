@@ -89,9 +89,9 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
                 {result && (
                     <div>
                         {result.isMatch ? (
-                            <p>Bonne réponse ! C'était bien : {result.bestMatch} </p>
+                            <p className={styles.right_answers}>Bonne réponse ! C'était bien : {result.bestMatch} </p>
                         ) : (
-                            <p>Mauvaise réponse, la réponse était :  {result.bestMatch} </p>
+                            <p className={styles.false_answers}>Mauvaise réponse, la réponse était :  {result.bestMatch} </p>
                         )}
                     </div>
                 )}
