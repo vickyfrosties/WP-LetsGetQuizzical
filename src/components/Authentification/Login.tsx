@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { loginUser } from "../../services/Login.service";
+import styles from "./Login.module.css";
 
 const Login = () => {
 
@@ -27,28 +28,31 @@ const Login = () => {
 
   return (
     <>
-      <section>
-        <h2>Connexion</h2>
-        <p>{error} </p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="">Nom d'utilisateur :</label>
-          <input
-            id="username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+      <section className={styles.login_container}>
+        <div>
+          <h2>Connexion</h2>
+          <p className={styles.erreur}>{error} </p>
+          <form className={styles.login_form} onSubmit={handleSubmit}>
+            <label htmlFor="">Nom d'utilisateur</label>
+            <input
+              autoFocus
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
 
-          <label htmlFor="">Mot de passe :</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+            <label htmlFor="">Mot de passe</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <button type="submit">Se connecter</button>
-        </form>
+            <button type="submit">Se connecter</button>
+          </form>
+        </div>
 
       </section>
     </>

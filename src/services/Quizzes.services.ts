@@ -1,4 +1,5 @@
 import { QuizzesResponseWP } from "../types";
+import { QuizCreationWP } from "../types/Quizz";
 
 const { VITE_URL_WP } = import.meta.env;
 
@@ -46,7 +47,7 @@ export async function getQuizById(id: number): Promise<QuizzesResponseWP> {
     return data as QuizzesResponseWP;
 }
 
-export async function createQuiz(quiz: QuizzesResponseWP): Promise<boolean> {
+export async function createQuiz(quiz: QuizCreationWP): Promise<boolean> {
     try {
         // chercher le nonce
         const wpApiSettings = (window as any).wpApiSettings;
@@ -64,8 +65,8 @@ export async function createQuiz(quiz: QuizzesResponseWP): Promise<boolean> {
                 "X-WP-Nonce": nonce
             },
             body: JSON.stringify({
-                titre: quiz.title,
-                content: quiz.description,
+                title: quiz.title,
+                content: quiz.content,
                 status: "publish"
             }),
             //  cookies de session

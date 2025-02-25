@@ -32,3 +32,8 @@ export type QuizzesResponseWP = {
     [key: string]: any;
 
 };
+
+export type QuizCreationWP = {
+    title: string,
+    content: string,
+};
