@@ -52,6 +52,7 @@ export async function createQuiz(quiz: QuizCreationWP): Promise<boolean> {
         // chercher le nonce
         const wpApiSettings = (window as any).wpApiSettings;
         const nonce = wpApiSettings?.nonce;
+        console.log(nonce);
 
         if (!nonce) {
             console.error("Aucun nonce");

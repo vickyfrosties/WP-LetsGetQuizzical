@@ -81,8 +81,6 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
                         <div className={styles.question}>
                             <p> {question.question} </p>
                             <p>{question.contenu}</p>
-
-                            {/* <img src={question.guid?.rendered} alt="question" /> */}
                         </div>
                     )}
                     {!result && (

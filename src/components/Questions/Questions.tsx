@@ -5,6 +5,7 @@ import { getQuizById } from "../../services/Quizzes.services";
 import QuizOverview from "../Overview/QuizOverview";
 import Game from "../Game/Game";
 import styles from "./Questions.module.css";
+import { postScore } from "../../services/Scoresboard.service";
 // import { postScore } from "../../services/Scoresboard.service";
 
 const Questions: React.FC = () => {
@@ -62,12 +63,12 @@ const Questions: React.FC = () => {
             setElapsedtime(totalMs);
         }
 
-        // try {
-        //     await postScore(finalScore, totalQuestions, percentage);
-        //     console.log("Score enregistré avec succès !");
-        // } catch (error) {
-        //     console.error("Erreur lors de l'enregistrement :", error);
-        // }
+        try {
+            await postScore(finalScore, totalQuestions, percentage);
+            console.log("Score enregistré avec succès !");
+        } catch (error) {
+            console.error("Erreur lors de l'enregistrement :", error);
+        }
 
     };
 

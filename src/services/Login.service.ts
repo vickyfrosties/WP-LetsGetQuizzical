@@ -53,3 +53,9 @@ export async function getUser(): Promise<{ id: number; name: string; } | null> {
     return null;
   }
 };
+
+// export async function registerUser(username: string, email: string): Promise<Boolean> {
+// const formData = new URLSearchParams()
+// formData.append("username",username)
+// formData.append("email",email)
+// }

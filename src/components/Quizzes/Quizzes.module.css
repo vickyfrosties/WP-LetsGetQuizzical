@@ -130,6 +130,12 @@
       width: 10.5rem;
       height: 2rem;
       cursor: pointer;
+
+      &:hover {
+        background-color: #2e2bfc;
+      }
     }
+
+
   }
 }

@@ -10,6 +10,6 @@
 
 body {
   background-color: var(--secondary-color);
-  background-image: url('../public/Icons/background-third.png');
+  background-image: url('/Icons/background-third.png');
   line-height: 1.5;
 }
