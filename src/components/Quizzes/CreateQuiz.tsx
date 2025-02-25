@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createQuiz } from "../../services/Quizzes.services";
+import styles from "./Quizzes.module.css";
 
 const CreateQuiz = () => {
 
@@ -28,30 +29,36 @@ const CreateQuiz = () => {
 
   return (
     <>
-      <div>
-        <h2>Créer un quiz</h2>
-        <p> {message} </p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Titre :</label>
-          <input
-            id="titre"
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+      <section className={styles.create_container}>
 
-          <label htmlFor="title">Contenu :</label>
-          <textarea
-            id="description"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
+        <div className={styles.form_container}>
+          <h2>Créer un quiz</h2>
+          <p className={styles.message}> {message} </p>
+          <form className={styles.form_quiz} onSubmit={handleSubmit}>
+            <label htmlFor="title">Titre</label>
+            <input
+              autoFocus
+              id="titre"
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
 
-          <button type="submit">
-            Créer le quiz
-          </button>
-        </form>
-      </div>
+            <label htmlFor="title">Contenu</label>
+            <textarea
+              id="description"
+              value={content}
+              maxLength={500}
+              onChange={(e) => setContent(e.target.value)}
+            />
+
+            <button type="submit">
+              Créer le quiz
+            </button>
+          </form>
+        </div>
+      </section>
+
     </>
   );
 };
