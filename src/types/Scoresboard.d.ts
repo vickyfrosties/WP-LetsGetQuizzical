@@ -6,5 +6,3 @@ export type ScoresboardResponseWP = {
     ID: number,
     [key: string]: any;
 };
-
-

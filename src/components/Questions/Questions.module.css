@@ -1,12 +1,14 @@
 .end_game {
-  background-color: white;
+  background-color: var(--primary-color);
   width: 50vw;
   height: 30vh;
   margin: auto;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 1em;
 
   h2 {
     font-size: 25px;

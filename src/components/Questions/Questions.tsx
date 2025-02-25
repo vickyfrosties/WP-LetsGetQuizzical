@@ -5,6 +5,7 @@ import { getQuizById } from "../../services/Quizzes.services";
 import QuizOverview from "../Overview/QuizOverview";
 import Game from "../Game/Game";
 import styles from "./Questions.module.css";
+// import { postScore } from "../../services/Scoresboard.service";
 
 const Questions: React.FC = () => {
 
@@ -60,10 +61,17 @@ const Questions: React.FC = () => {
             const totalMs = endTime - startTime;
             setElapsedtime(totalMs);
         }
+
+        // try {
+        //     await postScore(finalScore, totalQuestions, percentage);
+        //     console.log("Score enregistré avec succès !");
+        // } catch (error) {
+        //     console.error("Erreur lors de l'enregistrement :", error);
+        // }
+
     };
 
     const totalQuestions = quiz.association_avec_les_questions?.length || 0;
-    console.log(typeof totalQuestions);
     const percentage = finalScore !== null && totalQuestions > 0 ? Math.round(finalScore / totalQuestions * 100).toFixed(2) : null;
 
     const elapsedSeconds = elapsedTime ? (elapsedTime / 1000).toFixed(2) : null;

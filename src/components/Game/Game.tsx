@@ -77,14 +77,29 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
         <>
             <section className={styles.section_questions}>
                 <div className={styles.container_questions}>
-                    <p className={styles.text}> {question.question} </p>
                     {question.contenu && (
-                        <div>
-                            <p className={styles.text} >{question.contenu}</p>
-                            <img src={question.guid?.rendered} alt="question" />
+                        <div className={styles.question}>
+                            <p> {question.question} </p>
+                            <p>{question.contenu}</p>
+
+                            {/* <img src={question.guid?.rendered} alt="question" /> */}
                         </div>
                     )}
+                    {!result && (
+                        <div className={styles.input_container}>
+                            <input
+                                autoFocus
+                                type="text"
+                                value={userInput}
+                                onChange={(e) => setUserInput(e.target.value)}
+                            />
+
+                            <button onClick={handleMatch}>Valider</button>
+                        </div>
+                    )}
+
                 </div>
+
 
                 {result && (
                     <div>
@@ -93,17 +108,6 @@ const Game: React.FC<QuizGameProps> = ({ questions, onGameOver }) => {
                         ) : (
                             <p className={styles.false_answers}>Mauvaise réponse, la réponse était :  {result.bestMatch} </p>
                         )}
-                    </div>
-                )}
-                {!result && (
-                    <div>
-                        <input
-                            type="text"
-                            value={userInput}
-                            onChange={(e) => setUserInput(e.target.value)}
-                        />
-
-                        <button onClick={handleMatch}>Valider</button>
                     </div>
                 )}
 

@@ -45,3 +45,35 @@ export async function getQuizById(id: number): Promise<QuizzesResponseWP> {
     }
     return data as QuizzesResponseWP;
 }
+
+export async function createQuiz(quiz: QuizzesResponseWP): Promise<boolean> {
+    try {
+        // chercher le nonce
+        const wpApiSettings = (window as any).wpApiSettings;
+        const nonce = wpApiSettings?.nonce;
+
+        if (!nonce) {
+            console.error("Aucun nonce");
+            return false;
+        }
+
+        const response = await fetch(VITE_URL_WP + "wp-json/wp/v2/posts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-WP-Nonce": nonce
+            },
+            body: JSON.stringify({
+                titre: quiz.title,
+                content: quiz.description,
+                status: "publish"
+            }),
+            //  cookies de session
+            credentials: "include"
+        });
+        return response.ok;
+    } catch (err) {
+        console.error("Erreur lors de la création de quiz");
+        return false;
+    }
+}

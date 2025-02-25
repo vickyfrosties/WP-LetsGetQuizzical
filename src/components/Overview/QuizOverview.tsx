@@ -30,7 +30,7 @@ const QuizOverview: React.FC<QuizOverviewProps> = ({ quiz, onPlay }) => {
 
               {quiz.scoreboard.map((sb) => (
                 <div key={sb.ID}>
-                  <p>{JSON.stringify(sb.utilisateur)}</p>
+                  {/* <p>{JSON.stringify(sb.utilisateur)}</p> */}
                   <p>{(sb.points / 100).toFixed(2)}%</p>
                 </div>
               ))}
