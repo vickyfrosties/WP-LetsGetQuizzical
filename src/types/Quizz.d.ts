@@ -2,7 +2,7 @@ import { QuestionsResponseWP } from "./Questions";
 import { ScoresboardResponseWP } from "./Scoresboard";
 
 export type ImageQuizzResponseWP = {
-    ID: number,
+    ID: string,
     post_title?: string,
     post_mime_type: string,
     guid?: string,
