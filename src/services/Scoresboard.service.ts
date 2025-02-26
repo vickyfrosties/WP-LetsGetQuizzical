@@ -5,7 +5,7 @@ const { VITE_URL_WP } = import.meta.env;
 export async function postScore(finalScore: number | null, totalQuestions: number, percentage: string | null): Promise<ScoresboardResponseWP[]> {
 
   const scoreData = {
-    title: `Score du ${new Date().toLocaleDateString()}`,
+    title: `Score du ${new Date().toLocaleDateString("fr-FR")}`,
     fields: {
       score: finalScore,
       total: totalQuestions,
@@ -13,6 +13,8 @@ export async function postScore(finalScore: number | null, totalQuestions: numbe
     },
     status: "publish"
   };
+
+  console.log(scoreData);
 
   const response = await fetch(VITE_URL_WP + "wp-json/wp/v2/scoresboard/", {
     method: "POST",

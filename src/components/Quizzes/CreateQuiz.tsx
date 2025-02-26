@@ -6,6 +6,8 @@ const CreateQuiz = () => {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [questions, setQuestions] = useState("");
+  const [reponses, setReponses] = useState("");
   const [message, setMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,12 +46,26 @@ const CreateQuiz = () => {
               onChange={(e) => setTitle(e.target.value)}
             />
 
-            <label htmlFor="title">Contenu</label>
+            <label htmlFor="contenu">Contenu</label>
             <textarea
-              id="description"
+              id="contenu"
               value={content}
               maxLength={500}
               onChange={(e) => setContent(e.target.value)}
+            />
+
+            <label htmlFor="question">Question</label>
+            <input
+              id="question"
+              value={questions}
+              onChange={(e) => setQuestions(e.target.value)}
+            />
+
+            <label htmlFor="title">Réponse(s)</label>
+            <input
+              id="reponses"
+              value={reponses}
+              onChange={(e) => setReponses(e.target.value)}
             />
 
             <button type="submit">
